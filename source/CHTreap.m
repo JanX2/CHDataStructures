@@ -64,9 +64,9 @@
 			if (current->priority >= current->link[direction]->priority)
 				break;
 			NSAssert(parent != nil, @"Illegal state, parent should never be nil!");
+			CHBinaryTreeNode *nextParent = current->link[direction];
 			singleRotation(current, !direction, parent);
-			parent = current;
-			current = current->link[!direction];
+			parent = nextParent;
 		}
 	} else {
 		current = CHCreateBinaryTreeNodeWithObject(anObject);
